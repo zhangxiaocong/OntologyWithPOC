@@ -21,7 +21,6 @@ package main
 import (
 	"encoding/hex"
 	"fmt"
-	"net/http"
 	_ "net/http/pprof"
 	"os"
 	"os/signal"
@@ -142,14 +141,14 @@ func main() {
 	//runtime.SetBlockProfileRate(1)
 
 	//os.Args = append(os.Args, "--testmode")
-	os.Args = append(os.Args, "--enable-consensus")
+	//os.Args = append(os.Args, "--enable-consensus")
 
-	go func() {
-		if err := http.ListenAndServe(":6060", nil); err != nil {
-			log.Fatal(err)
-		}
-		os.Exit(0)
-	}()
+	//go func() {
+	//	if err := http.ListenAndServe(":6060", nil); err != nil {
+	//		log.Fatal(err)
+	//	}
+	//	os.Exit(0)
+	//}()
 
 	if err := setupAPP().Run(os.Args); err != nil {
 		cmd.PrintErrorMsg(err.Error())
